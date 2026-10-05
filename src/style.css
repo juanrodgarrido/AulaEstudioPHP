@@ -1,0 +1,371 @@
+@font-face {
+  font-family: "PoppinsSB";
+  src: url("Fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "PoppinsL";
+  src: url("Fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PoppinsB";
+  src: url("Fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PoppinsRG";
+  src: url("Fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PoppinsL", sans-serif;
+}
+
+/* ----------------------------- HEADER ----------------------------- */
+
+.estudio {
+  font-family: "PoppinsSB", sans-serif;
+  color: red;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0px 0px 3px gray;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  align-items: center;
+  z-index: 100;
+}
+
+.headerTitulo {
+  font-size: 22px;
+  font-family: "PoppinsSB", sans-serif;
+}
+
+.listaHeader {
+  display: flex;
+  gap: 1rem;
+}
+
+.listaHeader p {
+  cursor: pointer;
+}
+
+/* ----------------------------- HERO ----------------------------- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(238, 242, 255, 0.5),
+    rgba(255, 255, 255, 0.5),
+    rgba(239, 246, 255, 0.5)
+  );
+}
+
+h1 {
+  width: 80%;
+  max-width: 900px;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.1;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-family: "PoppinsB", sans-serif;
+}
+
+.palabra {
+  color: red;
+  font-family: "PoppinsB", sans-serif;
+}
+
+.subtitulo {
+  font-family: "PoppinsRG", sans-serif;
+  font-size: clamp(15px, 2vw, 18px);
+  margin-bottom: 8rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6rem 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 5rem;
+}
+
+.caja {
+  flex: 1 1 25%; 
+  min-width: 280px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 9px;
+  background-color: white;
+  padding: 0 2rem;
+  padding-top: 4rem;
+  position: relative;
+}
+
+.circulo {
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid #c9c9c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.icono {
+  width: 5rem;
+  height: 5rem;
+}
+
+.titulocaja {
+  font-family: "PoppinsRG", sans-serif;
+  font-size: 22px;
+}
+
+.subtitulocaja {
+  margin-bottom: 3rem;
+  font-size: 17px;
+}
+.informacion {
+  font-family: "PoppinsSB", sans-serif;
+  background: linear-gradient(
+    to right,
+    rgb(209, 0, 0),
+    rgb(248, 2, 2)
+  );
+  padding: 0.5rem;
+  border-radius: 11px;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  margin-top: auto;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* ----------------------------- CTA ----------------------------- */
+.cta {
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  padding: 0 1rem;
+}
+.h1cta {
+  margin-top: 4rem;
+  font-size: clamp(28px, 4vw, 54px);
+  margin-bottom: 4rem;
+}
+
+
+iframe{
+  border-radius: 11px;  
+    height: auto;
+    min-height: 500px; 
+    min-width: 350px;
+    width: 30%;
+
+}
+.ctamap{
+  display: flex;  
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 6rem;
+}
+
+.errores-box {
+  background: #ffdddd;
+  color: #cc0000;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+.errores-box ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+form, .formResultado {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  
+}
+.form, .formResultado{
+  
+  color: #2d3748;   
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 2rem;  
+  width: 30%;
+  max-width: 1200px;
+  min-width: 350px;    
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+label{
+    font-family: "PoppinsRG", sans-serif;
+
+}
+input {
+  font-family: "PoppinsRG", sans-serif;
+  
+  border-radius: 9px;
+  height: 2.4rem;
+  border: 0px;  
+  
+  padding-left: 1rem;
+  background-color: #f8fafc; 
+  color: #334155;
+}
+button {
+  margin-top: 1rem;
+  font-family: "PoppinsSB", sans-serif;
+  padding: 0.5rem;
+  border: 0px;
+  border-radius: 11px;  
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    rgb(209, 0, 0),
+    rgb(248, 2, 2)
+  );
+  
+}
+
+button:hover{
+  opacity: 0.9;
+}
+
+/* ------------------------ FOOTER ------------------------- */
+
+footer{
+  font-family: "PoppinsRG", sans-serif;
+  padding: 4rem 1rem;
+  background-color: #FCFBFC;
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+  
+}
+
+footer .headerTitulo{  
+  font-size: clamp(1.50rem, 1.5vw, 2.5rem);
+}
+
+.partesfooter{
+  font-size: clamp(15px, 0.9vw, 18px);
+  display: flex;  
+  flex-wrap: wrap;  
+  gap: 6rem;
+}
+
+.partes{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.titulofooter{
+  font-family: "PoppinsSB", sans-serif;
+}
+
+
+
+
+/* ------------------------ RESULTADOS ------------------------- */
+
+.resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resultados h1{
+  font-size: 1rem 0.6vw 2rem;
+}
+
+
+/* ----------------------------- RESPONSIVE ----------------------------- */
+
+
+@media (max-width: 768px) {
+  
+  header {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .subtitulo {
+    margin-bottom: 6rem;
+  }
+  .container {
+    gap: 5rem 1rem;
+  }
+
+
+  iframe{    
+    min-height: 300px;
+}
+
+
+
+footer{
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.partesfooter{
+  justify-content: left;
+  gap: 2rem;
+}
+
+
+
+}
