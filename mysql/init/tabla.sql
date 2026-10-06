@@ -1,0 +1,7 @@
+CREATE TABLE formulario(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido1 VARCHAR(50) NOT NULL,
+    apellido2 VARCHAR(50) NOT NULL,
+    dni CHAR(9) NOT NULL,
+    email VARCHAR(255) NOT NULL);

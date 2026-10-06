@@ -1,6 +1,7 @@
 <?php
 session_start();
-$formularioEnviado = isset($_POST["dni"]);
+require 'conexion.php';
+$formularioEnviado = $_SERVER['REQUEST_METHOD'] === 'POST';
 
 
 $nombre = trim($_POST['nombre'] ?? "");
@@ -15,18 +16,28 @@ if($formularioEnviado){
 
   if($nombre === ""){
       $errores[] = "Falta el nombre";
+    }elseif(mb_strlen($nombre) > 50){
+      $errores[] = "El nombre es demasiado largo";
     }
 
     if($apellido1 === ""){
       $errores[] = "Falta el primer apellido";
+    }elseif(mb_strlen($apellido1) > 50){
+      $errores[] = "El primer apellido es demasiado largo";
     }
+
 
     if($apellido2 === ""){
       $errores[] = "Falta el segundo apellido";
+    }elseif(mb_strlen($apellido2) > 50){
+      $errores[] = "El segundo apellido es demasiado largo";
     }
+
     
     if($email === ""){
       $errores[] = "Falta el correo electrónico";
+    }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $errores[] = "El formato del e-mail no es correcto";
     }
 
     if($dni === ""){
@@ -44,17 +55,23 @@ if($formularioEnviado){
     }
 
     if (empty($errores)) {        
-        $_SESSION['datos_usuario'] = [
-            'nombre'    => $nombre,
-            'apellido1' => $apellido1,
-            'apellido2' => $apellido2,
-            'dni'       => $dni,
-            'email'     => $email
-        ];
+        $sql = "INSERT INTO formulario (nombre, apellido1, apellido2, dni, email) VALUES (?, ?, ?, ?, ?)";
+
+        try{
+        $sentencia = $pdo->prepare($sql); //esta linea crea un objeto de la clase PDOStatement, representando que la sentencia está preparada esperando valores
+        $sentencia->execute([$nombre, $apellido1, $apellido2, $dni, $email]);
+
         
+        $_SESSION["id_formulario"] = $pdo->lastInsertId();
+
         
         header("Location: resultados.php");
         exit; 
+        }catch(PDOException $e){
+          error_log($e->getMessage());
+          $errores[] = "Ha habido un problema con la base de datos";
+        }
+        
     }
 
 }
@@ -64,7 +81,7 @@ if($formularioEnviado){
 ?>  
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -1,20 +1,42 @@
 <?php
 session_start();
+require 'conexion.php';
 
-if (!isset($_SESSION['datos_usuario'])) {
+
+if (!isset($_SESSION['id_formulario'])) {
     header("Location: index.php");
     exit;
 }
 
-$datos = $_SESSION['datos_usuario'];
+$id = $_SESSION['id_formulario'];
+$sql = "SELECT nombre, apellido1, apellido2, dni, email FROM formulario WHERE id = ?";
 
-$nombre = $datos['nombre'];
-$apellido1 = $datos['apellido1'];
-$apellido2 = $datos['apellido2'];
-$dni = $datos['dni'];
-$email = $datos['email'];
+try{
+$sentencia = $pdo->prepare($sql);
+$sentencia->execute([$id]);
+$fila = $sentencia->fetch(); //Guardamos los datos en fila para luego acceder a ellos
+}catch(PDOException $e){
+    error_log($e->getMessage()); //Así podemos ver el error en el log de Docker con docker compose logs web
+    exit("Ha habido un error en la base de datos");
+}
 
-unset($_SESSION['datos_usuario'])
+
+
+
+if(!$fila){
+  header("Location: index.php");
+    exit;
+}
+
+
+
+$nombre = $fila['nombre'];
+$apellido1 = $fila['apellido1'];
+$apellido2 = $fila['apellido2'];
+$dni = $fila['dni'];
+$email = $fila['email'];
+
+
 
 
 
