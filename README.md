@@ -100,7 +100,7 @@ git --version
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/juanrodgarrido/AulaEstudioPHP
 cd proyecto-ejercicio1
 ```
 
@@ -276,4 +276,4 @@ La carpeta `src/` está enlazada con el contenedor, así que no hace falta recon
 
 ## Autor
 
-Juan Rodríguez Garrido. Proyecto de la asignatura de Cliente, 2º de Desarrollo de Aplicaciones Web (DAW).
+Juan Rodríguez Garrido. Proyecto de la asignatura de Desarrollo web en Entorno Cliente, 2º de Desarrollo de Aplicaciones Web (DAW).
