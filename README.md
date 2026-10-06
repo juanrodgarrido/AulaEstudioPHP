@@ -7,7 +7,6 @@
 ![PHP](https://img.shields.io/badge/PHP-Apache-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.4-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-jQuery-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 </div>
 
@@ -53,7 +52,7 @@ Todo el entorno funciona con Docker, sin necesidad de instalar PHP, Apache ni My
 
 | Capa | Tecnología |
 | --- | --- |
-| Frontend | HTML, CSS, JavaScript / jQuery |
+| Frontend | HTML y CSS |
 | Backend | PHP con Apache (imagen `php:apache`) |
 | Base de datos | MySQL 8.4 |
 | Acceso a datos | PDO con la extensión `pdo_mysql` |
@@ -101,7 +100,7 @@ git --version
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/juanrodgarrido/AulaEstudioPHP
+git clone <URL_DEL_REPOSITORIO>
 cd proyecto-ejercicio1
 ```
 
