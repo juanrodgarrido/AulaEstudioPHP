@@ -1,28 +1,14 @@
-services:
-  db:
-    image: mysql:8.4
-    container_name: mysql-db
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - mysql_data:/var/lib/mysql
-      - "./init:/docker-entrypoint-initdb.d"
+services:  
   web:
     build: .
     environment:
-      DB_HOST: db
-      DB_DATABASE: ${DB_DATABASE}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
+      MONGODB_DB: ${MONGODB_DB}
+      MONGODB_URI: ${MONGODB_URI}
     ports:
       - "8080:80"
     volumes:
       - "../src:/var/www/html"
-    depends_on:
-      - db
+    
+      
 
-volumes:
-  mysql_data:  
+  
