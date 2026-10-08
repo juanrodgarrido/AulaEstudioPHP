@@ -54,20 +54,13 @@ if($formularioEnviado){
         }
     }
 
-    if (empty($errores)) {        
-        $sql = "INSERT INTO formulario (nombre, apellido1, apellido2, dni, email) VALUES (?, ?, ?, ?, ?)";
-
+    if (empty($errores)) {
         try{
-        $sentencia = $pdo->prepare($sql); //esta linea crea un objeto de la clase PDOStatement, representando que la sentencia está preparada esperando valores
-        $sentencia->execute([$nombre, $apellido1, $apellido2, $dni, $email]);
-
-        
-        $_SESSION["id_formulario"] = $pdo->lastInsertId();
-
-        
+        $resultado = $coleccion->insertOne(['nombre' => $nombre, 'apellido1' => $apellido1, 'apellido2' => $apellido2, 'dni' => $dni, 'email' => $email]);
+        $_SESSION["id_formulario"] = (string) $resultado->getInsertedId();  
         header("Location: resultados.php");
         exit; 
-        }catch(PDOException $e){
+        }catch(MongoDB\Driver\Exception\Exception $e){
           error_log($e->getMessage());
           $errores[] = "Ha habido un problema con la base de datos";
         }

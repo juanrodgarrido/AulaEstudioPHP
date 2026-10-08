@@ -9,13 +9,14 @@ if (!isset($_SESSION['id_formulario'])) {
 }
 
 $id = $_SESSION['id_formulario'];
-$sql = "SELECT nombre, apellido1, apellido2, dni, email FROM formulario WHERE id = ?";
+
+
+
 
 try{
-$sentencia = $pdo->prepare($sql);
-$sentencia->execute([$id]);
-$fila = $sentencia->fetch(); //Guardamos los datos en fila para luego acceder a ellos
-}catch(PDOException $e){
+$idObject = new MongoDB\BSON\ObjectId($id);
+$resultado = $coleccion->findOne(['_id' => $idObject]);
+}catch(MongoDB\Driver\Exception\Exception $e){
     error_log($e->getMessage()); //Así podemos ver el error en el log de Docker con docker compose logs web
     exit("Ha habido un error en la base de datos");
 }
@@ -23,18 +24,18 @@ $fila = $sentencia->fetch(); //Guardamos los datos en fila para luego acceder a 
 
 
 
-if(!$fila){
+if(!$resultado){
   header("Location: index.php");
     exit;
 }
 
 
 
-$nombre = $fila['nombre'];
-$apellido1 = $fila['apellido1'];
-$apellido2 = $fila['apellido2'];
-$dni = $fila['dni'];
-$email = $fila['email'];
+$nombre = $resultado['nombre'];
+$apellido1 = $resultado['apellido1'];
+$apellido2 = $resultado['apellido2'];
+$dni = $resultado['dni'];
+$email = $resultado['email'];
 
 
 
